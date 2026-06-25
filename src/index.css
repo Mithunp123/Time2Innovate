@@ -3,13 +3,17 @@
 /* ========================================
    Base Styles
    ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
   background: #000;
   color: #fff;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* ========================================
@@ -90,4 +94,49 @@ body {
 .animate-slide-in {
   opacity: 0;
   animation: slideInFromLeft 0.4s ease-out forwards;
+}
+
+/* ========================================
+   Glass Input (Contact Form)
+   ======================================== */
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.glass-input:focus {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+textarea.glass-input {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* ========================================
+   Section Fade Divider
+   ======================================== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.06) 70%,
+    transparent 100%
+  );
 }
