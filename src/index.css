@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+}
 
 /* ========================================
    Base Styles
@@ -10,10 +18,18 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans), sans-serif;
   background: #000;
   color: #fff;
   overflow-x: hidden;
+}
+
+h1 {
+  font-family: var(--font-display), sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
 }
 
 /* ========================================

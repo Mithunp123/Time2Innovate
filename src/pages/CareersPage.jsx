@@ -44,7 +44,7 @@ export default function CareersPage() {
           <SectionTag>Careers</SectionTag>
         </ScrollReveal>
         <ScrollReveal>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[-0.03em] mb-5">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-5 bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent pb-1">
             Join Our Team
           </h1>
         </ScrollReveal>
@@ -59,7 +59,7 @@ export default function CareersPage() {
       <section className="bg-gray-950 py-24 md:py-32">
         <div className="px-4 sm:px-6 md:px-12">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-[-0.03em] mb-16 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-16 text-center">
               Why Time2Innovate?
             </h2>
           </ScrollReveal>
@@ -88,7 +88,7 @@ export default function CareersPage() {
               <SectionTag>Get in Touch</SectionTag>
             </ScrollReveal>
             <ScrollReveal>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-[-0.03em] mb-5">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-5">
                 Ready to Make an Impact?
               </h2>
             </ScrollReveal>

@@ -31,7 +31,7 @@ export default function HomePage() {
       >
         <div className="max-w-4xl">
           <AnimatedElement delay={300}>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[-0.04em] mb-4 md:mb-6">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent leading-[1.1]">
               Innovative Technology That Drives Business Growth
             </h1>
           </AnimatedElement>
@@ -83,7 +83,7 @@ export default function HomePage() {
               <SectionTag>Our Services</SectionTag>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[-0.03em] mb-5">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-5">
                 Solutions That Power Innovation
               </h2>
             </ScrollReveal>
@@ -130,7 +130,7 @@ export default function HomePage() {
               <SectionTag>Featured Projects</SectionTag>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[-0.03em] mb-5">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-5">
                 Crafting Digital Excellence
               </h2>
             </ScrollReveal>
@@ -219,7 +219,7 @@ export default function HomePage() {
                 <SectionTag>About Us</SectionTag>
               </ScrollReveal>
               <ScrollReveal delay={100}>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-[-0.03em] mb-6 md:mb-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-6 md:mb-8">
                   Pioneering the Future of Technology
                 </h2>
               </ScrollReveal>
@@ -284,7 +284,7 @@ export default function HomePage() {
               <SectionTag>Get in Touch</SectionTag>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[-0.03em] mb-5">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-5">
                 Let's Build Something Great Together
               </h2>
             </ScrollReveal>

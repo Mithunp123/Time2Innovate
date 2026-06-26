@@ -31,7 +31,7 @@ export default function ProjectsPage() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-[-0.03em] mb-5">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-5 bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent pb-1">
               Projects &amp; Products
             </h1>
           </ScrollReveal>
@@ -86,18 +86,22 @@ export default function ProjectsPage() {
                   />
 
                   {/* Type Badge – top right */}
-                  <span
-                    className={`absolute top-4 right-5 liquid-glass rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase ${
-                      project.type === 'product' ? 'text-emerald-400' : 'text-blue-400'
-                    }`}
-                  >
-                    {project.type === 'product' ? 'Product' : 'Service'}
-                  </span>
+                  <div className="absolute top-4 right-5 z-10">
+                    <span
+                      className={`liquid-glass rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase ${
+                        project.type === 'product' ? 'text-emerald-400' : 'text-blue-400'
+                      }`}
+                    >
+                      {project.type === 'product' ? 'Product' : 'Service'}
+                    </span>
+                  </div>
 
                   {/* Category Badge – bottom left */}
-                  <span className="absolute bottom-4 left-5 liquid-glass rounded-full px-3 py-1 text-[11px] tracking-wider uppercase">
-                    {project.category}
-                  </span>
+                  <div className="absolute bottom-4 left-5 z-10">
+                    <span className="liquid-glass rounded-full px-3 py-1 text-[11px] tracking-wider uppercase">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Card Bottom – Info Area */}
