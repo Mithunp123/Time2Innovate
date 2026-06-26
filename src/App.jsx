@@ -231,9 +231,7 @@ export default function App() {
                 <div className="flex items-start gap-2 mt-4 text-gray-500 text-sm">
                   <MapPin size={16} className="mt-0.5 shrink-0" />
                   <span>
-                    123 Innovation Drive, Suite 400
-                    <br />
-                    San Francisco, CA 94105, USA
+                    Erode, Tamil Nadu, India
                   </span>
                 </div>
               </div>

@@ -117,6 +117,14 @@ function SocialIconButton({ name, url }) {
 
   if (!icon) return null
 
+  const brandColorClass = {
+    LinkedIn: 'text-[#0A66C2] opacity-85 group-hover:opacity-100',
+    'X (Twitter)': 'text-white opacity-75 group-hover:opacity-100',
+    Instagram: 'text-[#E1306C] opacity-85 group-hover:opacity-100',
+    Facebook: 'text-[#1877F2] opacity-85 group-hover:opacity-100',
+    YouTube: 'text-[#FF0000] opacity-85 group-hover:opacity-100',
+  }[name] || 'text-gray-400 group-hover:text-white';
+
   return (
     <a
       href={url}
@@ -141,7 +149,7 @@ function SocialIconButton({ name, url }) {
           )}
         </div>
         {/* SVG icon */}
-        <div className="w-6 h-6 text-gray-400 group-hover:text-white transition-all duration-300 group-hover:scale-110 relative z-10">
+        <div className={`w-6 h-6 transition-all duration-300 group-hover:scale-110 relative z-10 ${brandColorClass}`}>
           {icon}
         </div>
       </div>

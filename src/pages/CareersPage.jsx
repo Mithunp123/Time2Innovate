@@ -28,8 +28,8 @@ const benefits = [
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'careers@time2innovate.com' },
-  { icon: Phone, label: 'Phone', value: '+1 (234) 567-890' },
-  { icon: MapPin, label: 'Location', value: 'San Francisco, CA' },
+  { icon: Phone, label: 'Phone', value: '+91 8920544624' },
+  { icon: MapPin, label: 'Location', value: 'India' },
 ]
 
 export default function CareersPage() {
@@ -150,7 +150,23 @@ export default function CareersPage() {
                     </div>
                     <div>
                       <h4 className="text-sm text-gray-400 mb-1">{item.label}</h4>
-                      <p className="text-white">{item.value}</p>
+                      {item.label === 'Email' ? (
+                        <a
+                          href={`mailto:${item.value}`}
+                          className="text-white hover:text-gray-300 transition-colors"
+                        >
+                          {item.value}
+                        </a>
+                      ) : item.label === 'Phone' ? (
+                        <a
+                          href={`tel:${item.value.replace(/[^0-9+]/g, '')}`}
+                          className="text-white hover:text-gray-300 transition-colors"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <span className="text-white">{item.value}</span>
+                      )}
                     </div>
                   </div>
                 </ScrollReveal>

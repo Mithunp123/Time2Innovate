@@ -76,6 +76,7 @@ export const ALL_PROJECTS = [
       'A local commerce platform that enables customers to pre-order products from nearby shops while providing vendors with inventory, order, subscription, and payment management.',
     gradient: 'from-blue-500/20 via-indigo-500/10',
     glow: 'rgba(59,130,246,0.15)',
+    link: 'https://time2orders.com',
   },
   {
     title: 'Time2Due',
@@ -85,6 +86,7 @@ export const ALL_PROJECTS = [
       'A due date and payment reminder platform that helps individuals and businesses manage pending payments, reminders, and schedules efficiently.',
     gradient: 'from-violet-500/20 via-purple-500/10',
     glow: 'rgba(139,92,246,0.15)',
+    link: '#',
   },
   {
     title: 'Time2Farm',
@@ -94,6 +96,7 @@ export const ALL_PROJECTS = [
       'A digital agriculture management platform designed to assist farmers in managing crops, farming activities, agricultural records, and related information.',
     gradient: 'from-emerald-500/20 via-green-500/10',
     glow: 'rgba(16,185,129,0.15)',
+    link: 'https://time2farm.pages.dev',
   },
   {
     title: 'Time2Confirm',
@@ -103,6 +106,7 @@ export const ALL_PROJECTS = [
       'A digital verification and approval management platform that streamlines document verification, confirmation workflows, and approval processes.',
     gradient: 'from-cyan-500/20 via-teal-500/10',
     glow: 'rgba(6,182,212,0.15)',
+    link: 'https://time2confirm.pages.dev',
   },
   {
     title: 'Time2Track',
@@ -112,6 +116,7 @@ export const ALL_PROJECTS = [
       'A tracking and monitoring platform designed to manage records, monitor activities, and provide real-time status updates through an organized dashboard.',
     gradient: 'from-lime-500/20 via-emerald-500/10',
     glow: 'rgba(132,204,22,0.15)',
+    link: 'https://ctc.vikast.me/login',
   },
   {
     title: 'Propic',
@@ -121,6 +126,7 @@ export const ALL_PROJECTS = [
       'A professional business web platform developed to provide a modern, responsive, and user-friendly online presence for business operations.',
     gradient: 'from-rose-500/20 via-pink-500/10',
     glow: 'rgba(244,63,94,0.15)',
+    link: 'https://www.propic.in/',
   },
   {
     title: 'AutoRevives',
@@ -130,6 +136,7 @@ export const ALL_PROJECTS = [
       'An online vehicle auction and marketplace platform where users can list, browse, and bid on vehicles through a secure digital environment.',
     gradient: 'from-amber-500/20 via-orange-500/10',
     glow: 'rgba(245,158,11,0.15)',
+    link: 'https://autorevives.com/',
   },
   {
     title: 'TheAstro Billing System',
@@ -139,6 +146,7 @@ export const ALL_PROJECTS = [
       'A comprehensive billing and invoice management system developed for an astrology business, enabling customer management, invoice generation, and payment tracking.',
     gradient: 'from-yellow-500/20 via-amber-500/10',
     glow: 'rgba(234,179,8,0.15)',
+    link: 'https://theastrotech.pages.dev/login',
   },
   {
     title: 'TheAstro Portfolio Website',
@@ -148,6 +156,7 @@ export const ALL_PROJECTS = [
       'A professional portfolio website showcasing astrology services, consultation details, business information, and customer engagement features.',
     gradient: 'from-slate-400/20 via-blue-400/10',
     glow: 'rgba(148,163,184,0.15)',
+    link: 'https://theastro.pages.dev/',
   },
   {
     title: 'Challengers Trust Blood Management',
@@ -157,6 +166,7 @@ export const ALL_PROJECTS = [
       'A blood donation and blood bank management system that connects donors, hospitals, and patients while simplifying blood inventory management and emergency requests.',
     gradient: 'from-red-500/20 via-rose-500/10',
     glow: 'rgba(239,68,68,0.15)',
+    link: 'https://ctrust.pages.dev/',
   },
 ]
 
@@ -170,9 +180,9 @@ export const FEATURED_PROJECTS = ALL_PROJECTS.filter((p) =>
    ======================================== */
 
 export const STATS = [
-  { value: '10+', label: 'Years Experience' },
-  { value: '200+', label: 'Projects Delivered' },
-  { value: '50+', label: 'Team Members' },
+  { value: '2+', label: 'Years Experience' },
+  { value: '10+', label: 'Projects Delivered' },
+  { value: '10+', label: 'Team Members' },
   { value: '98%', label: 'Client Satisfaction' },
 ]
 

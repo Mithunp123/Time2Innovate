@@ -76,7 +76,12 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {filteredProjects.map((project, i) => (
             <ScrollReveal key={project.id ?? i} delay={i * 80}>
-              <div className="liquid-glass rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-1">
+              <a
+                href={project.link ?? '#'}
+                target={project.link && project.link !== '#' ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="block liquid-glass rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-1"
+              >
                 {/* Card Top – Visual Area */}
                 <div className="h-48 sm:h-56 relative overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} to-transparent`} />
@@ -110,15 +115,14 @@ export default function ProjectsPage() {
                   <p className="text-sm text-gray-400 leading-relaxed mb-4 line-clamp-3">
                     {project.description}
                   </p>
-                  <Link
-                    to={project.link ?? '#'}
-                    className="inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors duration-300"
+                  <span
+                    className="inline-flex items-center gap-1.5 text-sm text-white/70 group-hover:text-white transition-colors duration-300"
                   >
-                    View Details
+                    <span className="group-hover:underline">View Details</span>
                     <ArrowUpRight className="w-4 h-4" />
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </a>
             </ScrollReveal>
           ))}
         </div>

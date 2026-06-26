@@ -145,45 +145,50 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {FEATURED_PROJECTS.map((project, i) => (
               <ScrollReveal key={project.title} delay={i * 150}>
-                <div className="liquid-glass rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-1">
-                  {/* Gradient Image Area */}
-                  <div className="h-48 sm:h-56 relative overflow-hidden">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${project.gradient} to-transparent`}
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        background: `radial-gradient(ellipse at 30% 40%, ${project.glow}, transparent 60%)`,
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.03),transparent_50%)]" />
-                    {/* Type Badge */}
-                    <div className="absolute top-4 right-5">
-                      <span className="liquid-glass rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase text-emerald-400">
-                        Product
-                      </span>
-                    </div>
-                    {/* Category Badge */}
-                    <div className="absolute bottom-4 left-5">
-                      <span className="liquid-glass rounded-full px-3 py-1 text-[11px] tracking-wider uppercase">
-                        {project.category}
-                      </span>
-                    </div>
+              <a
+                href={project.link ?? '#'}
+                target={project.link && project.link !== '#' ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="block liquid-glass rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-1"
+              >
+                {/* Gradient Image Area */}
+                <div className="h-48 sm:h-56 relative overflow-hidden">
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} to-transparent`}
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: `radial-gradient(ellipse at 30% 40%, ${project.glow}, transparent 60%)`,
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.03),transparent_50%)]" />
+                  {/* Type Badge */}
+                  <div className="absolute top-4 right-5">
+                    <span className="liquid-glass rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase text-emerald-400">
+                      Product
+                    </span>
                   </div>
-                  {/* Content */}
-                  <div className="p-5 md:p-6">
-                    <h3 className="text-lg md:text-xl font-medium mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 text-sm text-white hover:text-gray-300 transition-colors group-hover:gap-2.5 duration-300">
-                      View Project <ArrowUpRight size={14} />
+                  {/* Category Badge */}
+                  <div className="absolute bottom-4 left-5">
+                    <span className="liquid-glass rounded-full px-3 py-1 text-[11px] tracking-wider uppercase">
+                      {project.category}
                     </span>
                   </div>
                 </div>
+                {/* Content */}
+                <div className="p-5 md:p-6">
+                  <h3 className="text-lg md:text-xl font-medium mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-sm text-white group-hover:text-gray-300 transition-colors group-hover:gap-2.5 duration-300">
+                    <span className="group-hover:underline">View Project</span> <ArrowUpRight size={14} />
+                  </span>
+                </div>
+              </a>
               </ScrollReveal>
             ))}
           </div>
@@ -347,7 +352,7 @@ export default function HomePage() {
                       href="mailto:hello@time2innovate.com"
                       className="text-sm sm:text-base hover:text-gray-300 transition-colors"
                     >
-                      hello@time2innovate.com
+                      support@time2orders.com
                     </a>
                   </div>
                 </div>
@@ -361,10 +366,10 @@ export default function HomePage() {
                   <div>
                     <div className="text-sm text-gray-400 mb-1">Phone</div>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:+918903795911"
                       className="text-sm sm:text-base hover:text-gray-300 transition-colors"
                     >
-                      +1 (234) 567-890
+                      +91 89037 95911
                     </a>
                   </div>
                 </div>
@@ -378,7 +383,7 @@ export default function HomePage() {
                   <div>
                     <div className="text-sm text-gray-400 mb-1">Location</div>
                     <span className="text-sm sm:text-base">
-                      San Francisco, CA
+                      Erode, Tamil Nadu, India
                     </span>
                   </div>
                 </div>
