@@ -96,7 +96,7 @@ export default function App() {
               to="/"
               className="text-xl md:text-2xl font-bold tracking-widest select-none h-8 md:h-10 flex items-center"
             >
-              <img className="h-28 md:h-28" src="/T2I-logo.png" alt="Logo" />
+              <img className="h-28 w-40 md:h-28 md:w-48 object-contain" src="/T2I-log.png" alt="Logo" />
             </Link>
           </AnimatedElement>
 
