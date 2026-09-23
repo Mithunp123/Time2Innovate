@@ -156,3 +156,51 @@ textarea.glass-input {
     transparent 100%
   );
 }
+
+/* ========================================
+   Print Layout Optimization (Fits 1 Single A4 Page, No Black Backgrounds)
+   ======================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm 8mm;
+  }
+
+  html, body, #root, #root > div, div.bg-black {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  video, iframe, embed, object, header, footer, nav, .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:flex {
+    display: flex !important;
+  }
+
+  .print\:border-slate-300 {
+    border-color: #cbd5e1 !important;
+  }
+
+  .print\:bg-white {
+    background-color: #ffffff !important;
+  }
+
+  .print\:bg-slate-50 {
+    background-color: #f8fafc !important;
+  }
+}

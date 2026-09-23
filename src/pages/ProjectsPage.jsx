@@ -11,7 +11,7 @@ export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('all')
 
   const filters = [
-    { key: 'all', label: 'All' },
+    { key: 'all', label: 'All Projects' },
     { key: 'product', label: 'Our Products' },
     { key: 'service', label: 'Client Services' },
   ]
@@ -22,46 +22,48 @@ export default function ProjectsPage() {
   })
 
   return (
-    <>
+    <div className="bg-slate-50 text-slate-900 min-h-screen selection:bg-blue-600 selection:text-white font-sans">
       {/* ── Hero Banner ── */}
-      <section className="bg-black pt-32 pb-16 px-4 sm:px-6 md:px-12">
-        <div className="max-w-4xl">
+      <section className="pt-32 pb-16 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto">
+        <div className="max-w-4xl space-y-4">
           <ScrollReveal>
-            <SectionTag>Our Portfolio</SectionTag>
+            <span className="px-3.5 py-1.5 bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono font-bold rounded-full uppercase tracking-wider inline-block">
+              Our Portfolio
+            </span>
           </ScrollReveal>
 
           <ScrollReveal>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-5 bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent pb-1">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900">
               Projects &amp; Products
             </h1>
           </ScrollReveal>
 
           <ScrollReveal>
-            <p className="text-gray-400">
-              From our own product suite to client solutions, every project reflects our commitment to innovation and technical excellence.
+            <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl font-normal">
+              From our own product suite to client solutions, every project reflects our commitment to innovation, speed, and technical excellence.
             </p>
           </ScrollReveal>
 
           <ScrollReveal>
-            <p className="text-gray-500 text-sm mt-4">
-              Time2 products are our own innovations. Other projects are service-based solutions built for clients.
+            <p className="text-slate-500 text-xs font-medium">
+              Time2 products are our own software innovations. Service projects are tailored client solutions.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
       {/* ── Filter Tabs ── */}
-      <section className="bg-black pb-8 px-4 sm:px-6 md:px-12">
+      <section className="pb-8 px-4 sm:px-6 md:px-12 max-w-6xl mx-auto">
         <ScrollReveal>
           <div className="flex flex-row gap-3">
             {filters.map((filter) => (
               <button
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
-                className={`rounded-full px-5 py-2 text-sm tracking-wide transition-all duration-300 ${
+                className={`rounded-xl px-5 py-2 text-xs font-bold tracking-wide transition-all duration-300 shadow-sm cursor-pointer ${
                   activeFilter === filter.key
-                    ? 'bg-white text-black'
-                    : 'liquid-glass text-gray-300 hover:text-white'
+                    ? 'bg-slate-900 text-white shadow-slate-900/10'
+                    : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200/90 hover:bg-slate-100'
                 }`}
               >
                 {filter.label}
@@ -72,29 +74,31 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── Projects Grid ── */}
-      <section className="bg-gray-950 py-16 md:py-24 px-4 sm:px-6 md:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+      <section className="bg-white border-t border-slate-200/80 py-16 md:py-24 px-4 sm:px-6 md:px-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, i) => (
             <ScrollReveal key={project.id ?? i} delay={i * 80}>
               <a
                 href={project.link ?? '#'}
                 target={project.link && project.link !== '#' ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className="block liquid-glass rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:-translate-y-1"
+                className="block bg-white border border-slate-200 rounded-3xl overflow-hidden group cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/60 shadow-md"
               >
-                {/* Card Top – Visual Area */}
-                <div className="h-48 sm:h-56 relative overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} to-transparent`} />
+                {/* Card Top – Visual Gradient Header Area */}
+                <div className="h-44 sm:h-48 relative overflow-hidden bg-slate-100">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />
                   <div
                     className="absolute inset-0"
                     style={{ background: `radial-gradient(circle at 50% 50%, ${project.glow}, transparent 70%)` }}
                   />
 
                   {/* Type Badge – top right */}
-                  <div className="absolute top-4 right-5 z-10">
+                  <div className="absolute top-4 right-4 z-10">
                     <span
-                      className={`liquid-glass rounded-full px-2.5 py-0.5 text-[10px] tracking-wider uppercase ${
-                        project.type === 'product' ? 'text-emerald-400' : 'text-blue-400'
+                      className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border shadow-sm ${
+                        project.type === 'product' 
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200' 
+                          : 'bg-blue-50 text-blue-700 border-blue-200'
                       }`}
                     >
                       {project.type === 'product' ? 'Product' : 'Service'}
@@ -102,25 +106,27 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Category Badge – bottom left */}
-                  <div className="absolute bottom-4 left-5 z-10">
-                    <span className="liquid-glass rounded-full px-3 py-1 text-[11px] tracking-wider uppercase">
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <span className="bg-white/90 backdrop-blur-md text-slate-800 border border-slate-200 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wider uppercase shadow-sm">
                       {project.category}
                     </span>
                   </div>
                 </div>
 
                 {/* Card Bottom – Info Area */}
-                <div className="p-5 md:p-6">
-                  <h3 className="text-lg md:text-xl font-medium mb-3">{project.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed mb-4 line-clamp-3">
+                <div className="p-6 space-y-3">
+                  <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-3 font-normal">
                     {project.description}
                   </p>
-                  <span
-                    className="inline-flex items-center gap-1.5 text-sm text-white/70 group-hover:text-white transition-colors duration-300"
-                  >
-                    <span className="group-hover:underline">View Details</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </span>
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                      <span>View Project Details</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </a>
             </ScrollReveal>
@@ -129,17 +135,17 @@ export default function ProjectsPage() {
       </section>
 
       {/* ── Back to Home ── */}
-      <section className="bg-black py-16 text-center">
+      <section className="bg-slate-50 py-16 text-center border-t border-slate-200">
         <ScrollReveal>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 liquid-glass rounded-full px-6 py-3 text-sm tracking-wide text-gray-300 hover:text-white transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-white border border-slate-300 rounded-full px-6 py-3 text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-all duration-300 shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            <span>Back to Home</span>
           </Link>
         </ScrollReveal>
       </section>
-    </>
+    </div>
   )
 }
