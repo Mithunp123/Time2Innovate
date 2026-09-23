@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { Eraser, PenTool, Type, CheckCircle2 } from 'lucide-react';
 
 export default function SignaturePad({ onSignatureChange, isSubmitting }) {
   const canvasRef = useRef(null);
@@ -34,16 +33,12 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
     }
   }, [mode, updateCanvasResolution]);
 
-  // Compute exact coordinates taking scale into account
   const getCoordinates = (e) => {
     const canvas = canvasRef.current;
     if (!canvas) return { x: 0, y: 0 };
     const rect = canvas.getBoundingClientRect();
-    
-    // Pointer or touch or mouse coordinates relative to rect
     const clientX = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
     const clientY = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
-
     return {
       x: clientX - rect.left,
       y: clientY - rect.top,
@@ -55,7 +50,6 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Capture pointer so trackpad/mouse moves stay tracked even outside canvas
     if (e.pointerId !== undefined && canvas.setPointerCapture) {
       try { canvas.setPointerCapture(e.pointerId); } catch {}
     }
@@ -107,7 +101,6 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
     onSignatureChange(dataUrl);
   };
 
-  // Generate typed signature on hidden canvas
   const handleTypedChange = (val) => {
     setTypedName(val);
     if (!val.trim()) {
@@ -133,36 +126,31 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
   };
 
   return (
-    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3 shadow-inner">
-      <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-        <div className="flex items-center gap-2">
-          <PenTool size={16} className="text-blue-600" />
-          <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-            Digital Signature Authorization *
-          </span>
-        </div>
+    <div className="bg-white border border-slate-300 p-4 space-y-3">
+      <div className="flex items-center justify-between border-b border-slate-300 pb-2.5">
+        <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+          Digital Signature Authorization *
+        </span>
 
         {/* Mode Switcher */}
-        <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-slate-200 text-xs">
+        <div className="flex items-center gap-2 text-xs font-medium">
           <button
             type="button"
             onClick={() => { setMode('draw'); clearCanvas(); }}
-            className={`px-2.5 py-1 rounded-lg flex items-center gap-1 font-semibold transition-all ${
-              mode === 'draw' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+            className={`px-3 py-1 border border-slate-300 text-xs font-semibold cursor-pointer ${
+              mode === 'draw' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'
             }`}
           >
-            <PenTool size={12} />
-            <span>Draw</span>
+            Draw Signature
           </button>
           <button
             type="button"
             onClick={() => { setMode('type'); setTypedName(''); onSignatureChange(null); }}
-            className={`px-2.5 py-1 rounded-lg flex items-center gap-1 font-semibold transition-all ${
-              mode === 'type' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+            className={`px-3 py-1 border border-slate-300 text-xs font-semibold cursor-pointer ${
+              mode === 'type' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-50'
             }`}
           >
-            <Type size={12} />
-            <span>Type</span>
+            Type Signature
           </button>
         </div>
       </div>
@@ -175,12 +163,12 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
             onPointerMove={draw}
             onPointerUp={stopDrawing}
             onPointerCancel={stopDrawing}
-            className="w-full h-36 bg-white border border-dashed border-slate-300 rounded-xl cursor-crosshair touch-none shadow-sm select-none"
+            className="w-full h-36 bg-white border border-slate-300 cursor-crosshair touch-none select-none"
           />
 
           {!hasSignature && (
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-xs text-slate-400 font-mono">
-              Sign with your mouse, trackpad, or finger here
+              Draw signature using mouse, trackpad, or touch
             </div>
           )}
 
@@ -189,10 +177,9 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
               type="button"
               onClick={clearCanvas}
               disabled={isSubmitting}
-              className="absolute top-2 right-2 px-2.5 py-1 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-colors cursor-pointer"
+              className="absolute top-2 right-2 px-3 py-1 bg-white hover:bg-slate-100 text-slate-900 border border-slate-300 text-xs font-semibold cursor-pointer"
             >
-              <Eraser size={12} />
-              <span>Clear</span>
+              Clear
             </button>
           )}
         </div>
@@ -203,24 +190,21 @@ export default function SignaturePad({ onSignatureChange, isSubmitting }) {
             value={typedName}
             onChange={(e) => handleTypedChange(e.target.value)}
             placeholder="Type your full legal name..."
-            className="w-full bg-white border border-dashed border-slate-300 rounded-xl px-4 py-3 text-lg font-serif italic text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 shadow-sm"
+            className="w-full bg-white border border-slate-300 px-4 py-3 text-lg font-serif italic text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-900"
           />
-          <p className="text-[10px] text-slate-500 italic">This signature will be converted into a digital legal signature image.</p>
+          <p className="text-[11px] text-slate-500 italic">This signature will be converted into a digital legal signature.</p>
         </div>
       )}
 
-      <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
-        <span className="flex items-center gap-1">
+      <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1">
+        <span>
           {hasSignature ? (
-            <span className="text-emerald-700 font-semibold flex items-center gap-1">
-              <CheckCircle2 size={13} />
-              Signature Recorded
-            </span>
+            <span className="text-slate-900 font-bold">Signature Recorded</span>
           ) : (
-            <span className="text-amber-700 font-medium">* Signature required before approval</span>
+            <span className="text-slate-700 font-medium">* Digital signature required for authorization</span>
           )}
         </span>
-        <span className="text-slate-400">Encrypted Digital Authorization</span>
+        <span className="text-slate-500 uppercase font-mono text-[10px]">Encrypted Authorization Certificate</span>
       </div>
     </div>
   );
