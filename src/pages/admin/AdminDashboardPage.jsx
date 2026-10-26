@@ -120,7 +120,7 @@ export default function AdminDashboardPage() {
             </p>
           </div>
           <Link
-            to="/projects/create"
+            to="/admin/projects/create"
             className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black text-xs font-extrabold rounded-2xl transition-all shadow-lg shadow-cyan-500/20 shrink-0 flex items-center gap-2 relative z-10"
           >
             <PlusCircle size={18} />
@@ -135,7 +135,7 @@ export default function AdminDashboardPage() {
           <div className="lg:col-span-2 bg-gray-900/60 border border-white/10 rounded-3xl p-6 backdrop-blur-xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <h3 className="text-base font-bold text-white">Recent Project Confirmations</h3>
-              <Link to="/projects" className="text-xs text-cyan-400 hover:underline flex items-center gap-1">
+              <Link to="/admin/projects" className="text-xs text-cyan-400 hover:underline flex items-center gap-1">
                 <span>View All ({totalProjects})</span>
                 <ArrowRight size={14} />
               </Link>
@@ -155,7 +155,7 @@ export default function AdminDashboardPage() {
                   {projects.slice(0, 5).map((p) => (
                     <tr key={p.id} className="hover:bg-white/[0.02]">
                       <td className="py-3.5 px-3">
-                        <Link to={`/projects/${p.id}`} className="font-bold text-white hover:text-cyan-400 transition-colors block">
+                        <Link to={`/admin/projects/${p.id}`} className="font-bold text-white hover:text-cyan-400 transition-colors block">
                           {p.title}
                         </Link>
                         <span className="text-[11px] text-gray-400">{p.clientName}</span>

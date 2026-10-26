@@ -50,7 +50,7 @@ export default function ProjectDetailsPage() {
   const handleDelete = async () => {
     if (!window.confirm('Are you sure you want to delete this project?')) return;
     await dbService.deleteProject(id);
-    navigate('/projects');
+    navigate('/admin/projects');
   };
 
   if (loading) {
@@ -70,7 +70,7 @@ export default function ProjectDetailsPage() {
         <div className="bg-gray-900/60 border border-white/10 rounded-3xl p-8 text-center">
           <h3 className="text-lg font-bold text-white mb-2">Project Not Found</h3>
           <p className="text-xs text-gray-400 mb-4">No project matching ID "{id}" was found in the database.</p>
-          <Link to="/projects" className="px-4 py-2 bg-white/10 text-white text-xs font-semibold rounded-xl">
+          <Link to="/admin/projects" className="px-4 py-2 bg-white/10 text-white text-xs font-semibold rounded-xl">
             Back to Projects
           </Link>
         </div>
@@ -85,7 +85,7 @@ export default function ProjectDetailsPage() {
         {/* Navigation & Action Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <Link 
-            to="/projects"
+            to="/admin/projects"
             className="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors bg-white/5 px-3.5 py-2 rounded-xl border border-white/10"
           >
             <ArrowLeft size={16} />

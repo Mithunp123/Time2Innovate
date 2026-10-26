@@ -68,16 +68,7 @@ export default function App() {
 
   // Determine if current route is a standalone portal route (Confirm or Admin)
   const isConfirmRoute = location.pathname.startsWith('/confirm')
-  const isAdminRoute = [
-    '/dashboard', 
-    '/projects', 
-    '/clients', 
-    '/templates', 
-    '/documents', 
-    '/activity', 
-    '/settings', 
-    '/admin'
-  ].some(path => location.pathname === path || location.pathname.startsWith(path + '/'))
+  const isAdminRoute = location.pathname.startsWith('/admin')
 
   const isStandaloneRoute = isConfirmRoute || isAdminRoute
 
@@ -244,16 +235,16 @@ export default function App() {
           <Route path="/confirm/:token/changes" element={<RequestChangesPage />} />
 
           {/* ADMIN Portal Routes (Protected by 'allowme' passcode) */}
-          <Route path="/admin" element={<Navigate to="/dashboard" replace />} />
-          <Route path="/dashboard" element={<AdminProtectedRoute><AdminDashboardPage /></AdminProtectedRoute>} />
-          <Route path="/projects" element={<AdminProtectedRoute><ProjectsOverviewPage /></AdminProtectedRoute>} />
-          <Route path="/projects/create" element={<AdminProtectedRoute><CreateProjectPage /></AdminProtectedRoute>} />
-          <Route path="/projects/:id" element={<AdminProtectedRoute><ProjectDetailsPage /></AdminProtectedRoute>} />
-          <Route path="/clients" element={<AdminProtectedRoute><ClientsPage /></AdminProtectedRoute>} />
-          <Route path="/templates" element={<AdminProtectedRoute><TemplatesPage /></AdminProtectedRoute>} />
-          <Route path="/documents" element={<AdminProtectedRoute><DocumentsPage /></AdminProtectedRoute>} />
-          <Route path="/activity" element={<AdminProtectedRoute><ActivityPage /></AdminProtectedRoute>} />
-          <Route path="/settings" element={<AdminProtectedRoute><SettingsPage /></AdminProtectedRoute>} />
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="/admin/dashboard" element={<AdminProtectedRoute><AdminDashboardPage /></AdminProtectedRoute>} />
+          <Route path="/admin/projects" element={<AdminProtectedRoute><ProjectsOverviewPage /></AdminProtectedRoute>} />
+          <Route path="/admin/projects/create" element={<AdminProtectedRoute><CreateProjectPage /></AdminProtectedRoute>} />
+          <Route path="/admin/projects/:id" element={<AdminProtectedRoute><ProjectDetailsPage /></AdminProtectedRoute>} />
+          <Route path="/admin/clients" element={<AdminProtectedRoute><ClientsPage /></AdminProtectedRoute>} />
+          <Route path="/admin/templates" element={<AdminProtectedRoute><TemplatesPage /></AdminProtectedRoute>} />
+          <Route path="/admin/documents" element={<AdminProtectedRoute><DocumentsPage /></AdminProtectedRoute>} />
+          <Route path="/admin/activity" element={<AdminProtectedRoute><ActivityPage /></AdminProtectedRoute>} />
+          <Route path="/admin/settings" element={<AdminProtectedRoute><SettingsPage /></AdminProtectedRoute>} />
         </Routes>
 
         {/* Render Footer only for marketing pages */}

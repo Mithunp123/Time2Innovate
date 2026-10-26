@@ -109,14 +109,14 @@ export const ALL_PROJECTS = [
     link: 'https://time2confirm.pages.dev',
   },
   {
-    title: 'Time2Track',
-    category: 'Tracking & Monitoring',
+    title: 'KalviFlow',
+    category: 'Education Tech',
     type: 'product',
     description:
-      'A tracking and monitoring platform designed to manage records, monitor activities, and provide real-time status updates through an organized dashboard.',
+      'A education platform designed to manage records, monitor activities, and provide real-time status updates through an organized dashboard.',
     gradient: 'from-lime-500/20 via-emerald-500/10',
     glow: 'rgba(132,204,22,0.15)',
-    link: 'https://ctc.vikast.me/login',
+    link: 'https://play.google.com/store/apps/details?id=com.kalviflow.app',
   },
   {
     title: 'Propic',

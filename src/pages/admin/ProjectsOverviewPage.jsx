@@ -68,7 +68,7 @@ export default function ProjectsOverviewPage() {
       title="All Projects & Confirmations"
       actionButton={
         <Link 
-          to="/projects/create"
+          to="/admin/projects/create"
           className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black text-xs font-extrabold rounded-xl flex items-center gap-1.5 transition-all shadow-md shadow-cyan-500/20"
         >
           <PlusCircle size={16} />
@@ -141,7 +141,7 @@ export default function ProjectsOverviewPage() {
                     <span className="text-[11px] text-gray-500 font-mono">Token: {p.token}</span>
                   </div>
 
-                  <Link to={`/projects/${p.id}`} className="text-base font-bold text-white group-hover:text-cyan-400 transition-colors line-clamp-1 block">
+                  <Link to={`/admin/projects/${p.id}`} className="text-base font-bold text-white group-hover:text-cyan-400 transition-colors line-clamp-1 block">
                     {p.title}
                   </Link>
                   <p className="text-xs text-gray-400 mt-1">Client: <strong className="text-gray-300">{p.clientName}</strong></p>
@@ -176,7 +176,7 @@ export default function ProjectsOverviewPage() {
                     </Link>
 
                     <Link
-                      to={`/projects/${p.id}`}
+                      to={`/admin/projects/${p.id}`}
                       className="p-2 bg-white/5 hover:bg-white/10 text-gray-300 rounded-xl border border-white/10 transition-colors"
                       title="View Full Details"
                     >

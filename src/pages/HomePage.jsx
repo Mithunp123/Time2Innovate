@@ -197,7 +197,7 @@ export default function HomePage() {
           <ScrollReveal delay={300}>
             <div className="text-center mt-12 md:mt-16">
               <Link
-                to="/projects"
+                to="/portfolio"
                 className="inline-flex items-center gap-2 liquid-glass rounded-full font-medium px-8 py-3 text-white hover:bg-white/5 transition-colors duration-300"
               >
                 View All Projects

@@ -23,13 +23,13 @@ import {
 } from 'lucide-react';
 
 const NAV_ITEMS = [
-  { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-  { label: 'Projects', path: '/projects', icon: FolderKanban },
-  { label: 'Clients', path: '/clients', icon: Users },
-  { label: 'Templates', path: '/templates', icon: FileCode2 },
-  { label: 'Documents', path: '/documents', icon: FileText },
-  { label: 'Activity', path: '/activity', icon: Activity },
-  { label: 'Settings', path: '/settings', icon: Settings },
+  { label: 'Dashboard', path: '/admin/dashboard', icon: LayoutDashboard },
+  { label: 'Projects', path: '/admin/projects', icon: FolderKanban },
+  { label: 'Clients', path: '/admin/clients', icon: Users },
+  { label: 'Templates', path: '/admin/templates', icon: FileCode2 },
+  { label: 'Documents', path: '/admin/documents', icon: FileText },
+  { label: 'Activity', path: '/admin/activity', icon: Activity },
+  { label: 'Settings', path: '/admin/settings', icon: Settings },
 ];
 
 export default function AdminLayout({ children, title, actionButton }) {
@@ -60,7 +60,7 @@ export default function AdminLayout({ children, title, actionButton }) {
         <div>
           {/* Logo & Workspace Title */}
           <div className="h-20 px-6 flex items-center justify-between border-b border-white/10">
-            <Link to="/dashboard" className="flex items-center gap-3">
+            <Link to="/admin/dashboard" className="flex items-center gap-3">
               <img src="/T2I-log.png" alt="Time2Innovate" className="h-9 w-auto object-contain" />
               <div>
                 <span className="text-xs font-black tracking-widest text-white block">T2I ADMIN</span>
@@ -82,7 +82,7 @@ export default function AdminLayout({ children, title, actionButton }) {
             </div>
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
-              const isActive = location.pathname === item.path || (item.path !== '/dashboard' && location.pathname.startsWith(item.path));
+              const isActive = location.pathname === item.path || (item.path !== '/admin/dashboard' && location.pathname.startsWith(item.path));
               return (
                 <Link
                   key={item.path}
@@ -151,7 +151,7 @@ export default function AdminLayout({ children, title, actionButton }) {
           <div className="flex items-center gap-3">
             {actionButton ? actionButton : (
               <Link 
-                to="/projects/create"
+                to="/admin/projects/create"
                 className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-md shadow-cyan-500/20"
               >
                 <PlusCircle size={16} />
@@ -169,7 +169,7 @@ export default function AdminLayout({ children, title, actionButton }) {
               <button
                 onClick={() => {
                   sessionStorage.removeItem('t2i_admin_authed');
-                  window.location.href = '/dashboard';
+                  window.location.href = '/admin/dashboard';
                 }}
                 title="Lock / Log Out Admin"
                 className="p-2 text-gray-400 hover:text-red-400 hover:bg-white/5 rounded-xl transition-colors cursor-pointer"

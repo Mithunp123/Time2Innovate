@@ -17,7 +17,7 @@ export default function TemplatesPage() {
   }, []);
 
   const handleUseTemplate = (tpl) => {
-    navigate('/projects/create');
+    navigate('/admin/projects/create');
   };
 
   return (
